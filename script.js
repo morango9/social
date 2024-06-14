@@ -9,36 +9,66 @@ const perguntas = [
     {
         enunciado: "vc gosta de estuda?",
         alternativas: [
-            "sim",
-        "não"
+            {
+                texto: "sim",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "não",
+                afirmacao: "afirmacao"
+            },
         ]
     },
     {
         enunciado: "Pergunta 2",
         alternativas: [
-            "Alternativa 1",
-        "Alternativa 2"
+            {
+                texto: "sim",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "não",
+                afirmacao: "afirmacao"
+            },
         ]
     },
     {
         enunciado: "Pergunta 3",
         alternativas: [
-        "Alternativa 1",
-        "Alternativa 2"
+            {
+                texto: "sim",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "não",
+                afirmacao: "afirmacao"
+            },
         ]
     },
     {
         enunciado: "Pergunta 4",
         alternativas: [
-        "Alternativa 1",
-        "Alternativa 2"
+            {
+                texto: "sim",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "não",
+                afirmacao: "afirmacao"
+            },
         ]
     },
     {
         enunciado: "Pergunta 5",
         alternativas: [
-        "Alternativa 1",
-        "Alternativa 2"
+            {
+                texto: "sim",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "não",
+                afirmacao: "afirmacao"
+            },
         ]
     }
 ];
@@ -55,10 +85,16 @@ function mostraPergunta() {
 function mostraAlternativas(){
     for(const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa;
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
 
+function respostaSelecionada(opcaoSelecionada){
+
+}
 mostraPergunta();
+
+
 
