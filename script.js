@@ -10,75 +10,81 @@ const perguntas = [
         enunciado: "vc gosta de estuda?",
         alternativas: [
             {
-                texto: "sim",
-                afirmacao: "afirmacao"
+                texto: "isso é assustador",
+                afirmacao: "afirmacao",
             },
             {
                 texto: "não",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
-        ]
+        ],
     },
     {
         enunciado: "Pergunta 2",
         alternativas: [
             {
                 texto: "sim",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
             {
                 texto: "não",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
-        ]
+        ],
     },
     {
         enunciado: "Pergunta 3",
         alternativas: [
             {
                 texto: "sim",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
             {
                 texto: "não",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
-        ]
+        ],
     },
     {
         enunciado: "Pergunta 4",
         alternativas: [
             {
                 texto: "sim",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
             {
                 texto: "não",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
-        ]
+        ],
     },
     {
         enunciado: "Pergunta 5",
         alternativas: [
             {
                 texto: "sim",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
             {
                 texto: "não",
-                afirmacao: "afirmacao"
+                afirmacao: "afirmacao",
             },
-        ]
-    }
+        ],
+    },
 ];
 
 let atual = 0;
 let perguntaAtual;
+let historiaFinal= "";
 
 function mostraPergunta() {
+    if(atual >= perguntaAtual.length){
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
     mostraAlternativas();
 }
 
@@ -92,9 +98,26 @@ function mostraAlternativas(){
 }
 
 function respostaSelecionada(opcaoSelecionada){
+     const afirmacoes = opcaoSelecionada.afirmacoes;
+     historiaFinal += afirmacoes + " ";
+     atual++;
+     mostraPergunta();
 
 }
+
+function mostraResultado(){
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+}
+
+
 mostraPergunta();
+
+
+
+
+      
 
 
 
